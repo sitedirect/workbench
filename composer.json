@@ -1,11 +1,15 @@
 {
-    "name": "illuminate/workbench",
-    "description": "The Illuminate Workbench package.",
+    "name": "jackiedo/workbench",
+    "description": "Bring workbench back to Laravel 5.",
     "license": "MIT",
     "authors": [
         {
             "name": "Taylor Otwell",
             "email": "taylorotwell@gmail.com"
+        },
+        {
+            "name": "Jackie Do",
+            "email": "anhvudo@gmail.com"
         }
     ],
     "require": {
@@ -19,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Illuminate\\Workbench\\": ""
+            "Jackiedo\\Workbench\\": ""
         }
     },
     "extra": {
