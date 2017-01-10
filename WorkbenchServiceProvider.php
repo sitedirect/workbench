@@ -1,7 +1,7 @@
-<?php namespace Illuminate\Workbench;
+<?php namespace Jackiedo\Workbench;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Workbench\Console\WorkbenchMakeCommand;
+use Jackiedo\Workbench\Console\WorkbenchMakeCommand;
 
 class WorkbenchServiceProvider extends ServiceProvider {
 
@@ -11,6 +11,24 @@ class WorkbenchServiceProvider extends ServiceProvider {
 	 * @var bool
 	 */
 	protected $defer = false;
+
+	/**
+	 * Bootstrap the application events.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		$path = config_path('workbench.php');
+
+        $this->publishes([
+            __DIR__.'/Config/config.php' => $path,
+        ], 'config');
+
+        if (file_exists($path)) {
+            $this->mergeConfigFrom($path, 'workbench');
+        }
+	}
 
 	/**
 	 * Register the service provider.

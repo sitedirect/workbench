@@ -1,4 +1,4 @@
-<?php namespace Illuminate\Workbench;
+<?php namespace Jackiedo\Workbench;
 
 class Package {
 

@@ -1,4 +1,4 @@
-<?php namespace Illuminate\Workbench;
+<?php namespace Jackiedo\Workbench;
 
 use Illuminate\Filesystem\Filesystem;
 
@@ -49,7 +49,7 @@ class PackageCreator {
 	/**
 	 * Create a new package stub.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $path
 	 * @param  bool    $plain
 	 * @return string
@@ -72,7 +72,7 @@ class PackageCreator {
 	/**
 	 * Create a package with all resource directories.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $path
 	 * @return void
 	 */
@@ -95,7 +95,7 @@ class PackageCreator {
 	/**
 	 * Write the support files to the package root.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @param  bool    $plain
 	 * @return void
@@ -111,7 +111,7 @@ class PackageCreator {
 	/**
 	 * Write the PHPUnit stub file.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @return void
 	 */
@@ -125,7 +125,7 @@ class PackageCreator {
 	/**
 	 * Write the Travis stub file.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @return void
 	 */
@@ -139,7 +139,7 @@ class PackageCreator {
 	/**
 	 * Write the Composer.json stub file.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @param  bool    $plain
 	 * @return void
@@ -169,7 +169,7 @@ class PackageCreator {
 	/**
 	 * Write the stub .gitignore file for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @param  bool    $plain
 	 * @return void
@@ -182,13 +182,13 @@ class PackageCreator {
 	/**
 	 * Create the support directories for a package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @return void
 	 */
 	public function writeSupportDirectories(Package $package, $directory)
 	{
-		foreach (array('config', 'controllers', 'lang', 'migrations', 'views') as $support)
+		foreach (array('config', 'controllers', 'lang', 'migrations', 'views', 'assets', 'routes') as $support)
 		{
 			$this->writeSupportDirectory($package, $support, $directory);
 		}
@@ -197,7 +197,7 @@ class PackageCreator {
 	/**
 	 * Write a specific support directory for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $support
 	 * @param  string  $directory
 	 * @return void
@@ -212,12 +212,28 @@ class PackageCreator {
 		$this->files->makeDirectory($path, 0777, true);
 
 		$this->files->put($path.'/.gitkeep', '');
+
+		switch ($support) {
+			case 'config':
+				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/config.stub'));
+				$this->files->put($path.'/config.php', $content);
+				break;
+
+			case 'routes':
+				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/routes.stub'));
+				$this->files->put($path.'/routes.php', $content);
+				break;
+
+			default:
+				# code...
+				break;
+		}
 	}
 
 	/**
 	 * Create the public directory for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @param  bool    $plain
 	 * @return void
@@ -234,7 +250,7 @@ class PackageCreator {
 	/**
 	 * Create the test directory for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @return void
 	 */
@@ -248,7 +264,7 @@ class PackageCreator {
 	/**
 	 * Write the stub ServiceProvider for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @param  bool    $plain
 	 * @return void
@@ -266,7 +282,7 @@ class PackageCreator {
 	/**
 	 * Write the service provider stub for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @param  string  $stub
 	 * @return void
@@ -286,7 +302,7 @@ class PackageCreator {
 	/**
 	 * Get the stub for a ServiceProvider.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  bool  $plain
 	 * @return string
 	 */
@@ -314,7 +330,7 @@ class PackageCreator {
 	/**
 	 * Create the main source directory for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $directory
 	 * @return string
 	 */
@@ -333,7 +349,7 @@ class PackageCreator {
 	/**
 	 * Format a generic package stub file.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $stub
 	 * @return string
 	 */
@@ -350,7 +366,7 @@ class PackageCreator {
 	/**
 	 * Create a workbench directory for the package.
 	 *
-	 * @param  \Illuminate\Workbench\Package  $package
+	 * @param  \Jackiedo\Workbench\Package  $package
 	 * @param  string  $path
 	 * @return string
 	 *

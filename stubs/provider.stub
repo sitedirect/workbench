@@ -18,7 +18,51 @@ class {{name}}ServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('{{lower_vendor}}/{{lower_name}}');
+		/**
+		 * Loading routes and controllers
+		 */
+		include __DIR__.'/../../routes/routes.php';
+
+		/**
+		 * Loading translations
+		 */
+		$this->loadTranslationsFrom(__DIR__ . '/../../lang', '{{lower_name}}');
+
+		/**
+		 * Loading and preparing for publish views
+		 */
+		$this->loadViewsFrom(__DIR__ . '/../../views', '{{lower_name}}');
+
+		$this->publishes([
+			__DIR__.'/../../views' => base_path('resources/views/{{vendor}}/{{lower_name}}'),
+		], 'views');
+
+		/**
+		 * Preparing for publish config
+		 */
+		$config = config_path('{{lower_name}}.php');
+
+		$this->publishes([
+			__DIR__.'/../../config/config.php' => $config,
+		], 'config');
+
+		if (file_exists($config)) {
+			$this->mergeConfigFrom($config, '{{lower_name}}');
+		}
+
+		/**
+		 * Preparing for publish assets (JavaScript, CSS, images...)
+		 */
+		$this->publishes([
+		    __DIR__.'/../../assets' => public_path('packages/{{vendor}}/{{lower_name}}'),
+		], 'public');
+
+		/**
+		 * Preparing for publish your migrations
+		 */
+		$this->publishes([
+		    __DIR__.'/../../migrations/' => database_path('/migrations')
+		], 'migrations');
 	}
 
 	/**
@@ -28,7 +72,10 @@ class {{name}}ServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app->singleton('{{lower_name}}', function($app)
+		{
+			return new {{name}};
+		});
 	}
 
 	/**
@@ -38,7 +85,7 @@ class {{name}}ServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return [];
+		return ['{{lower_name}}'];
 	}
 
 }
