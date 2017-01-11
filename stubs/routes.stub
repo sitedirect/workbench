@@ -1,5 +1,3 @@
 <?php
 
-Route::get('{{lower_name}}', function() {
-	return 'Welcome to your packages';
-});
+Route::get('{{lower_name}}', '{{vendor}}\{{name}}\Http\Controllers\DemoController@demo');

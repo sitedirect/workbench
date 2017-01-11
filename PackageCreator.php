@@ -30,9 +30,9 @@ class PackageCreator {
 	protected $blocks = array(
 		'SupportFiles',
 		'SupportDirectories',
-		'PublicDirectory',
 		'TestDirectory',
 		'ServiceProvider',
+		'SourceClassDirectories'
 	);
 
 	/**
@@ -188,7 +188,15 @@ class PackageCreator {
 	 */
 	public function writeSupportDirectories(Package $package, $directory)
 	{
-		foreach (array('config', 'controllers', 'lang', 'migrations', 'views', 'assets', 'routes') as $support)
+		$supports = array(
+			'config',
+			'migrations',
+			'resources/assets',
+			'resources/lang',
+			'resources/views'
+		);
+
+		foreach ($supports as $support)
 		{
 			$this->writeSupportDirectory($package, $support, $directory);
 		}
@@ -219,13 +227,7 @@ class PackageCreator {
 				$this->files->put($path.'/config.php', $content);
 				break;
 
-			case 'routes':
-				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/routes.stub'));
-				$this->files->put($path.'/routes.php', $content);
-				break;
-
 			default:
-				# code...
 				break;
 		}
 	}
@@ -387,6 +389,89 @@ class PackageCreator {
 		}
 
 		throw new \InvalidArgumentException("Package exists.");
+	}
+
+	/**
+	 * Create source class directories for package
+	 *
+	 * @param  \Jackiedo\Workbench\Package 	$package
+	 * @param  string 						$directory
+	 *
+	 * @return void
+	 */
+	protected function writeSourceClassDirectories(Package $package, $directory)
+	{
+		$classDirectories = array(
+			'Console',
+			'Facades',
+			'Http',
+			'Http/Controllers',
+		);
+
+		foreach ($classDirectories as $classDirectory)
+		{
+			$this->writeSourceClassDirectory($package, $classDirectory, $directory);
+		}
+
+		$this->writeMainClassFile($package, $directory);
+	}
+
+	/**
+	 * Create specify source class directory
+	 *
+	 * @param  \Jackiedo\Workbench\Package $package
+	 * @param  string  $classDirectory
+	 * @param  string  $directory
+	 *
+	 * @return void
+	 */
+	protected function writeSourceClassDirectory(Package $package, $classDirectory, $directory)
+	{
+		$classDirectoryPath = $this->createClassDirectory($package, $directory);
+
+		// Once we created the class directory, we will create source
+		// class directories and write class files to the these
+		// directories.
+		$path = $classDirectoryPath.'/'.$classDirectory;
+
+		$this->files->makeDirectory($path, 0777, true);
+
+		switch ($classDirectory) {
+			case 'Facades':
+				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/facades.stub'));
+				$this->files->put($path.'/'.$package->name.'.php', $content);
+				break;
+
+			case 'Http':
+				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/routes.stub'));
+				$this->files->put($path.'/routes.php', $content);
+				break;
+
+			case 'Http/Controllers':
+				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/controller.stub'));
+				$this->files->put($path.'/DemoController.php', $content);
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	/**
+	 * Write main class file for package
+	 *
+	 * @param  \Jackiedo\Workbench\Package 	$package
+	 * @param  string 						$directory
+	 *
+	 * @return void
+	 */
+	protected function writeMainClassFile(Package $package, $directory)
+	{
+		$classDirectoryPath = $this->createClassDirectory($package, $directory);
+
+		$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/main.stub'));
+
+		$this->files->put($classDirectoryPath.'/'.$package->name.'.php', $content);
 	}
 
 }
