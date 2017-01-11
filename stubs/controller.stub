@@ -1,0 +1,20 @@
+<?php namespace {{vendor}}\{{name}}\Http\Controllers;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use {{vendor}}\{{name}}\Facades\{{name}};
+
+/**
+ * The DemoController facade.
+ *
+ * @package {{vendor}}\{{name}}\Http\Controllers
+ * @author {{author}} <{{email}}>
+ */
+class DemoController extends Controller {
+
+	public function demo() {
+		return {{name}}::welcome();
+	}
+
+}

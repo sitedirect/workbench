@@ -1,0 +1,14 @@
+<?php namespace {{vendor}}\{{name}};
+
+/**
+ * The {{name}} facade.
+ *
+ * @package {{vendor}}\{{name}}
+ * @author {{author}} <{{email}}>
+ */
+class {{name}}
+{
+    public function welcome() {
+        return 'Welcome to {{vendor}}\{{name}} package';
+    }
+}
