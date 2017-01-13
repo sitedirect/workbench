@@ -29,11 +29,13 @@ You can install this package through [Composer](https://getcomposer.org).
 
 - First, edit your project's `composer.json` file to require `jackiedo/workbench`:
 
+```php
+...
+"require": {
     ...
-    "require": {
-        ...
-        "jackiedo/workbench": "{{laravel-version}}.*"
-    },
+    "jackiedo/workbench": "{{laravel-version}}.*"
+},
+```
 
 > Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.0, you have to set require is `"jackiedo/workbench": "5.0.*"`
 
@@ -45,11 +47,13 @@ $ composer update
 
 - Once update operation completes, on the third step, we add the service provider. Open `config/app.php` file, and add a new item to the providers array:
 
+```php
+...
+'providers' => array(
     ...
-    'providers' => array(
-        ...
-        'Jackiedo\Workbench\WorkbenchServiceProvider',
-    ),
+    'Jackiedo\Workbench\WorkbenchServiceProvider',
+),
+```
 
 - On the fourth step, we publish configuration file:
 
