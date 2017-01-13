@@ -27,7 +27,7 @@ In each branch we have multiple versions, tagged syntax as `5.0.*`, `5.1.*`, `5.
 
 You can install this package through [Composer](https://getcomposer.org).
 
-> First, edit your project's `composer.json` file to require `jackiedo/workbench`:
+- First, edit your project's `composer.json` file to require `jackiedo/workbench`:
 
     ...
     "require": {
@@ -35,15 +35,15 @@ You can install this package through [Composer](https://getcomposer.org).
         "jackiedo/workbench": "{{laravel-version}}.*"
     },
 
-Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.0, you have to set require is `"jackiedo/workbench": "5.0.*"`
+> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.0, you have to set require is `"jackiedo/workbench": "5.0.*"`
 
-> Next step, we update Composer from the Terminal on your project source:
+- Next step, we update Composer from the Terminal on your project source:
 
 ```shell
 $ composer update
 ```
 
-> Once update operation completes, on the third step, we add the service provider. Open `config/app.php` file, and add a new item to the providers array:
+- Once update operation completes, on the third step, we add the service provider. Open `config/app.php` file, and add a new item to the providers array:
 
     ...
     'providers' => array(
@@ -51,13 +51,13 @@ $ composer update
         'Jackiedo\Workbench\WorkbenchServiceProvider',
     ),
 
-> On the fourth step, we publish configuration file:
+- On the fourth step, we publish configuration file:
 
 ```shell
 $ php artisan vendor:publish
 ```
 
-> And the final step is add autoload the workbench to your `bootstrap/autoload.php` file. Put this following code at the very bottom of script.
+- And the final step is add autoload the workbench to your `bootstrap/autoload.php` file. Put this following code at the very bottom of script.
 
 ```php
 /*
