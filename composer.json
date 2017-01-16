@@ -14,12 +14,11 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "illuminate/filesystem": "~5.1",
-        "illuminate/support": "~5.1",
-        "symfony/finder": "2.7.*"
+        "illuminate/filesystem": "~5.2",
+        "illuminate/support": "~5.2",
     },
     "require-dev": {
-        "illuminate/console": "~5.1"
+        "illuminate/console": "~5.2"
     },
     "autoload": {
         "psr-4": {
@@ -28,7 +27,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.1-dev"
+            "dev-master": "5.2-dev"
         }
     },
     "minimum-stability": "dev"
