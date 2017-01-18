@@ -50,7 +50,7 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		], 'config');
 
 		/**
-		 * Loading package's translations
+		 * Loading and publishing package's translations
 		 */
 		$this->loadTranslationsFrom($packageTranslationsPath, '{{lower_name}}');
 
