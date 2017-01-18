@@ -54,9 +54,9 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		 */
 		$this->loadTranslationsFrom($packageTranslationsPath, '{{lower_name}}');
 
-	    $this->publishes([
-	        $packageTranslationsPath => resource_path('lang/vendor/{{lower_name}}'),
-	    ]);
+		$this->publishes([
+			$packageTranslationsPath => resource_path('lang/vendor/{{lower_name}}'),
+		], 'lang');
 
 		/**
 		 * Loading and publishing package's views
