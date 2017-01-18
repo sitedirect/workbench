@@ -24,7 +24,7 @@ class {{name}}ServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$packageRoutesPath       = __DIR__ . '/Http/routes.php';
+		$packageRoutesPath       = __DIR__ . '/../../routes/demo.php';
 		$packageConfigPath       = __DIR__ . '/../../config/config.php';
 		$packageMigrationsPath   = __DIR__ . '/../../migrations';
 		$packageAssetsPath       = __DIR__ . '/../../resources/assets';
@@ -34,7 +34,7 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		/**
 		 * Loading package's routes and controllers
 		 */
-		include $packageRoutesPath;
+		$this->loadRoutesFrom($packageRoutesPath);
 
 		/**
 		 * Publishing package's config
@@ -54,13 +54,17 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		 */
 		$this->loadTranslationsFrom($packageTranslationsPath, '{{lower_name}}');
 
+		$this->publishes([
+			$packageTranslationsPath => resource_path('lang/{{lower_vendor}}/{{lower_name}}'),
+		], 'lang');
+
 		/**
 		 * Loading and publishing package's views
 		 */
 		$this->loadViewsFrom($packageViewsPath, '{{lower_name}}');
 
 		$this->publishes([
-			$packageViewsPath => base_path('resources/views/{{lower_vendor}}/{{lower_name}}'),
+			$packageViewsPath => resource_path('views/{{lower_vendor}}/{{lower_name}}'),
 		], 'views');
 
 		/**
@@ -71,8 +75,10 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		], 'public');
 
 		/**
-		 * Publishing package's migrations
+		 * Loading and publishing package's migrations
 		 */
+		$this->loadMigrationsFrom($packageMigrationsPath);
+
 		$this->publishes([
 		    $packageMigrationsPath => database_path('/migrations')
 		], 'migrations');
