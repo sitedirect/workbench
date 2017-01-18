@@ -193,7 +193,8 @@ class PackageCreator {
 			'migrations',
 			'resources/assets',
 			'resources/lang',
-			'resources/views'
+			'resources/views',
+			'routes'
 		);
 
 		foreach ($supports as $support)
@@ -225,6 +226,11 @@ class PackageCreator {
 			case 'config':
 				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/config.stub'));
 				$this->files->put($path.'/config.php', $content);
+				break;
+
+			case 'routes':
+				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/routes.stub'));
+				$this->files->put($path.'/demo.php', $content);
 				break;
 
 			default:
@@ -404,7 +410,6 @@ class PackageCreator {
 		$classDirectories = array(
 			'Console',
 			'Facades',
-			'Http',
 			'Http/Controllers',
 		);
 
@@ -440,11 +445,6 @@ class PackageCreator {
 			case 'Facades':
 				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/facades.stub'));
 				$this->files->put($path.'/'.$package->name.'.php', $content);
-				break;
-
-			case 'Http':
-				$content = $this->formatPackageStub($package, $this->files->get(__DIR__.'/stubs/routes.stub'));
-				$this->files->put($path.'/routes.php', $content);
 				break;
 
 			case 'Http/Controllers':

@@ -24,7 +24,7 @@ class {{name}}ServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$packageRoutesPath       = __DIR__ . '/Http/routes.php';
+		$packageRoutesPath       = __DIR__ . '/../../routes/demo.php';
 		$packageConfigPath       = __DIR__ . '/../../config/config.php';
 		$packageMigrationsPath   = __DIR__ . '/../../migrations';
 		$packageAssetsPath       = __DIR__ . '/../../resources/assets';
@@ -37,22 +37,26 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		include $packageRoutesPath;
 
 		/**
-		 * Publishing package's config
+		 * Loading and publishing package's config
 		 */
 		$config = config_path('{{lower_name}}.php');
-
-		$this->publishes([
-			$packageConfigPath => $config,
-		], 'config');
 
 		if (file_exists($config)) {
 			$this->mergeConfigFrom($packageConfigPath, '{{lower_name}}');
 		}
 
+		$this->publishes([
+			$packageConfigPath => $config,
+		], 'config');
+
 		/**
 		 * Loading package's translations
 		 */
 		$this->loadTranslationsFrom($packageTranslationsPath, '{{lower_name}}');
+
+		$this->publishes([
+			$packageTranslationsPath => resource_path('lang/vendor/{{lower_name}}'),
+		], 'lang');
 
 		/**
 		 * Loading and publishing package's views
@@ -60,19 +64,21 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom($packageViewsPath, '{{lower_name}}');
 
 		$this->publishes([
-			$packageViewsPath => base_path('resources/views/{{lower_vendor}}/{{lower_name}}'),
+			$packageViewsPath => resource_path('views/vendor/{{lower_name}}'),
 		], 'views');
 
 		/**
 		 * Publishing package's assets (JavaScript, CSS, images...)
 		 */
 		$this->publishes([
-		    $packageAssetsPath => public_path('{{lower_vendor}}/{{lower_name}}'),
+		    $packageAssetsPath => public_path('vendor/{{lower_name}}'),
 		], 'public');
 
 		/**
-		 * Publishing package's migrations
+		 * Loading and publishing package's migrations
 		 */
+		$this->loadMigrationsFrom($packageMigrationsPath);
+
 		$this->publishes([
 		    $packageMigrationsPath => database_path('/migrations')
 		], 'migrations');

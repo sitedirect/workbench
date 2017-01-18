@@ -37,7 +37,7 @@ You can install this package through [Composer](https://getcomposer.org).
 },
 ```
 
-> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.2, you have to set require is `"jackiedo/workbench": "5.2.*"`
+> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.3, you have to set require is `"jackiedo/workbench": "5.3.*"`
 
 - Next step, we update Composer from the Terminal on your project source:
 
