@@ -56,7 +56,7 @@ class {{name}}ServiceProvider extends ServiceProvider {
 
 	    $this->publishes([
 	        $packageTranslationsPath => base_path('resources/lang/vendor/{{lower_name}}'),
-	    ]);
+	    ], 'lang');
 
 		/**
 		 * Loading and publishing package's views
