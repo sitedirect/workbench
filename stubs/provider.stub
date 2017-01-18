@@ -41,13 +41,13 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		 */
 		$config = config_path('{{lower_name}}.php');
 
-		$this->publishes([
-			$packageConfigPath => $config,
-		], 'config');
-
 		if (file_exists($config)) {
 			$this->mergeConfigFrom($packageConfigPath, '{{lower_name}}');
 		}
+
+		$this->publishes([
+			$packageConfigPath => $config,
+		], 'config');
 
 		/**
 		 * Loading package's translations
@@ -60,14 +60,14 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom($packageViewsPath, '{{lower_name}}');
 
 		$this->publishes([
-			$packageViewsPath => base_path('resources/views/{{lower_vendor}}/{{lower_name}}'),
+			$packageViewsPath => base_path('resources/views/vendor/{{lower_name}}'),
 		], 'views');
 
 		/**
 		 * Publishing package's assets (JavaScript, CSS, images...)
 		 */
 		$this->publishes([
-		    $packageAssetsPath => public_path('{{lower_vendor}}/{{lower_name}}'),
+		    $packageAssetsPath => public_path('vendor/{{lower_name}}'),
 		], 'public');
 
 		/**
