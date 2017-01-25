@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/jackiedo/workbench/v/stable)](https://packagist.org/packages/jackiedo/workbench)
+[![Total Downloads](https://poser.pugx.org/jackiedo/workbench/downloads)](https://packagist.org/packages/jackiedo/workbench)
+[![Latest Unstable Version](https://poser.pugx.org/jackiedo/workbench/v/unstable)](https://packagist.org/packages/jackiedo/workbench)
+[![License](https://poser.pugx.org/jackiedo/workbench/license)](https://packagist.org/packages/jackiedo/workbench)
+
 # Laravel 5 Workbench
 
 Bring workbench back to Laravel 5+
