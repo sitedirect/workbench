@@ -20,8 +20,9 @@ Each branch of Laravel 5 Workbench is similarities with each version of Laravel 
 | [5.1](https://github.com/JackieDo/workbench/tree/5.1) | 5.1              |
 | [5.2](https://github.com/JackieDo/workbench/tree/5.2) | 5.2              |
 | [5.3](https://github.com/JackieDo/workbench/tree/5.3) | 5.3              |
+| [5.4](https://github.com/JackieDo/workbench/tree/5.4) | 5.4              |
 
-In each branch we have multiple versions, tagged syntax as `5.0.*`, `5.1.*`, `5.2.*`, `5.3.*`...
+In each branch we have multiple versions, tagged syntax as `5.0.*`, `5.1.*`, `5.2.*`, `5.3.*`, `5.4.*`...
 
 ## Installation
 
@@ -37,7 +38,7 @@ You can install this package through [Composer](https://getcomposer.org).
 },
 ```
 
-> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.3, you have to set require is `"jackiedo/workbench": "5.3.*"`
+> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.4, you have to set require is `"jackiedo/workbench": "5.4.*"`
 
 - Next step, we update Composer from the Terminal on your project source:
 
@@ -108,3 +109,4 @@ $ php artisan workbench vendor/package --resources
 - [Laravel 5.1 Package Development](https://laravel.com/docs/5.1/packages)
 - [Laravel 5.2 Package Development](https://laravel.com/docs/5.2/packages)
 - [Laravel 5.3 Package Development](https://laravel.com/docs/5.3/packages)
+- [Laravel 5.4 Package Development](https://laravel.com/docs/5.4/packages)
