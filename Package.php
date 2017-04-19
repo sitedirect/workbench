@@ -30,6 +30,13 @@ class Package {
 	 */
 	public $lowerName;
 
+    /**
+     * The singular version of the package name.
+     *
+     * @var string
+     */
+    public $singular;
+
 	/**
 	 * The name of the author.
 	 *
@@ -61,6 +68,8 @@ class Package {
 		$this->author = $author;
 		$this->lowerName = snake_case($name, '-');
 		$this->lowerVendor = snake_case($vendor, '-');
+		$this->singular = str_singular($name);
+
 	}
 
 	/**

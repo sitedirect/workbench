@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
  * @package {{vendor}}\{{name}}
  * @author {{author}} <{{email}}>
  */
-class {{name}}ServiceProvider extends ServiceProvider {
+class {{singular}}ServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -26,10 +26,9 @@ class {{name}}ServiceProvider extends ServiceProvider {
 	{
 		$packageRoutesPath       = __DIR__ . '/../../routes/demo.php';
 		$packageConfigPath       = __DIR__ . '/../../config/config.php';
-		$packageMigrationsPath   = __DIR__ . '/../../migrations';
+		$packageMigrationsPath   = __DIR__ . '/../../database/migrations';
 		$packageAssetsPath       = __DIR__ . '/../../resources/assets';
 		$packageTranslationsPath = __DIR__ . '/../../resources/lang';
-		$packageViewsPath        = __DIR__ . '/../../resources/views';
 
 		/**
 		 * Loading package's routes and controllers
@@ -55,17 +54,8 @@ class {{name}}ServiceProvider extends ServiceProvider {
 		$this->loadTranslationsFrom($packageTranslationsPath, '{{lower_name}}');
 
 		$this->publishes([
-			$packageTranslationsPath => resource_path('lang/vendor/{{lower_name}}'),
+			$packageTranslationsPath => resource_path('lang/vendor/{{vendor}}{{lower_name}}'),
 		], 'lang');
-
-		/**
-		 * Loading and publishing package's views
-		 */
-		$this->loadViewsFrom($packageViewsPath, '{{lower_name}}');
-
-		$this->publishes([
-			$packageViewsPath => resource_path('views/vendor/{{lower_name}}'),
-		], 'views');
 
 		/**
 		 * Publishing package's assets (JavaScript, CSS, images...)
