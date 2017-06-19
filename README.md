@@ -58,7 +58,7 @@ $ composer update
 ...
 'providers' => array(
     ...
-    sitedirect\Workbench\WorkbenchServiceProvider::class,
+    SiteDirect\Workbench\WorkbenchServiceProvider::class,
 ),
 ```
 
@@ -84,7 +84,7 @@ $ php artisan vendor:publish
 
 if (is_dir($workbench = __DIR__.'/../workbench'))
 {
-    sitedirect\Workbench\Starter::start($workbench);
+    SiteDirect\Workbench\Starter::start($workbench);
 }
 ```
 
