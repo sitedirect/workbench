@@ -1,4 +1,4 @@
-<?php namespace Jackiedo\Workbench;
+<?php namespace SiteDirect\Workbench;
 
 use Illuminate\Support\ServiceProvider;
 use Jackiedo\Workbench\Console\WorkbenchMakeCommand;

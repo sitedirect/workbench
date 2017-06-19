@@ -1,5 +1,5 @@
 {
-    "name": "sitedirect/workbench",
+    "name": "SiteDirect/workbench",
     "description": "Bringing Package Development Kit back to Laravel.",
     "license": "MIT",
     "authors": [
@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jackiedo\\Workbench\\": ""
+            "SiteDirect\\Workbench\\": ""
         }
     },
     "extra": {

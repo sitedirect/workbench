@@ -1,4 +1,4 @@
-<?php namespace Jackiedo\Workbench;
+<?php namespace SiteDirect\Workbench;
 
 use Symfony\Component\Finder\Finder;
 use Illuminate\Filesystem\Filesystem;

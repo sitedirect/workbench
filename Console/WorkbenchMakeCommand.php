@@ -1,4 +1,4 @@
-<?php namespace Jackiedo\Workbench\Console;
+<?php namespace SiteDirect\Workbench\Console;
 
 use Illuminate\Console\Command;
 use Jackiedo\Workbench\Package;
