@@ -3,6 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/jackiedo/workbench/v/unstable)](https://packagist.org/packages/jackiedo/workbench)
 [![License](https://poser.pugx.org/jackiedo/workbench/license)](https://packagist.org/packages/jackiedo/workbench)
 
+
 # Laravel 5 Workbench
 
 Bring workbench back to Laravel 5+
@@ -21,11 +22,11 @@ Each branch of Laravel 5 Workbench is similarities with each version of Laravel 
 
 | Branch                                                | Laravel version  |
 | ----------------------------------------------------- | ---------------- |
-| [5.0](https://github.com/JackieDo/workbench/tree/5.0) | 5.0              |
-| [5.1](https://github.com/JackieDo/workbench/tree/5.1) | 5.1              |
-| [5.2](https://github.com/JackieDo/workbench/tree/5.2) | 5.2              |
-| [5.3](https://github.com/JackieDo/workbench/tree/5.3) | 5.3              |
-| [5.4](https://github.com/JackieDo/workbench/tree/5.4) | 5.4              |
+| [5.0](https://github.com/sitedirect/workbench/tree/5.0) | 5.0              |
+| [5.1](https://github.com/sitedirect/workbench/tree/5.1) | 5.1              |
+| [5.2](https://github.com/sitedirect/workbench/tree/5.2) | 5.2              |
+| [5.3](https://github.com/sitedirect/workbench/tree/5.3) | 5.3              |
+| [5.4](https://github.com/sitedirect/workbench/tree/5.4) | 5.4              |
 
 In each branch we have multiple versions, tagged syntax as `5.0.*`, `5.1.*`, `5.2.*`, `5.3.*`, `5.4.*`...
 
@@ -33,17 +34,17 @@ In each branch we have multiple versions, tagged syntax as `5.0.*`, `5.1.*`, `5.
 
 You can install this package through [Composer](https://getcomposer.org).
 
-- First, edit your project's `composer.json` file to require `jackiedo/workbench`:
+- First, edit your project's `composer.json` file to require `sitedirect/workbench`:
 
 ```php
 ...
 "require": {
     ...
-    "jackiedo/workbench": "{{laravel-version}}.*"
+    "sitedirect/workbench": "{{laravel-version}}.*"
 },
 ```
 
-> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.4, you have to set require is `"jackiedo/workbench": "5.4.*"`
+> Note: `{{laravel-version}}` string above is main version of Laravel that you want to install Laravel Workbench on it. Example, if you want to install this package on Laravel 5.4, you have to set require is `"sitedirect/workbench": "5.4.*"`
 
 - Next step, we update Composer from the Terminal on your project source:
 
@@ -57,7 +58,7 @@ $ composer update
 ...
 'providers' => array(
     ...
-    Jackiedo\Workbench\WorkbenchServiceProvider::class,
+    sitedirect\Workbench\WorkbenchServiceProvider::class,
 ),
 ```
 
@@ -83,7 +84,7 @@ $ php artisan vendor:publish
 
 if (is_dir($workbench = __DIR__.'/../workbench'))
 {
-    Jackiedo\Workbench\Starter::start($workbench);
+    sitedirect\Workbench\Starter::start($workbench);
 }
 ```
 
