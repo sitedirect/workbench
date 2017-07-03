@@ -49,7 +49,7 @@ class PackageCreator {
     /**
      * Create a new package stub.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $path
      * @param  bool    $plain
      * @return string
@@ -72,7 +72,7 @@ class PackageCreator {
     /**
      * Create a package with all resource directories.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $path
      * @return void
      */
@@ -95,7 +95,7 @@ class PackageCreator {
     /**
      * Write the support files to the package root.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @param  bool    $plain
      * @return void
@@ -111,7 +111,7 @@ class PackageCreator {
     /**
      * Write the PHPUnit stub file.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @return void
      */
@@ -125,7 +125,7 @@ class PackageCreator {
     /**
      * Write the Travis stub file.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @return void
      */
@@ -139,7 +139,7 @@ class PackageCreator {
     /**
      * Write the Composer.json stub file.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @param  bool    $plain
      * @return void
@@ -169,7 +169,7 @@ class PackageCreator {
     /**
      * Write the stub .gitignore file for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @param  bool    $plain
      * @return void
@@ -182,7 +182,7 @@ class PackageCreator {
     /**
      * Create the support directories for a package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @return void
      */
@@ -208,7 +208,7 @@ class PackageCreator {
     /**
      * Write a specific support directory for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $support
      * @param  string  $directory
      * @return void
@@ -253,7 +253,7 @@ class PackageCreator {
     /**
      * Create the test directory for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @return void
      */
@@ -267,7 +267,7 @@ class PackageCreator {
     /**
      * Write the stub ServiceProvider for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @param  bool    $plain
      * @return void
@@ -285,7 +285,7 @@ class PackageCreator {
     /**
      * Write the service provider stub for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @param  string  $stub
      * @return void
@@ -305,7 +305,7 @@ class PackageCreator {
     /**
      * Get the stub for a ServiceProvider.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  bool  $plain
      * @return string
      */
@@ -333,7 +333,7 @@ class PackageCreator {
     /**
      * Create the main source directory for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $directory
      * @return string
      */
@@ -352,7 +352,7 @@ class PackageCreator {
     /**
      * Format a generic package stub file.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $stub
      * @return string
      */
@@ -369,7 +369,7 @@ class PackageCreator {
     /**
      * Create a workbench directory for the package.
      *
-     * @param  \Jackiedo\Workbench\Package  $package
+     * @param  \SiteDirect\Workbench\Package  $package
      * @param  string  $path
      * @return string
      *
@@ -395,8 +395,8 @@ class PackageCreator {
     /**
      * Create source class directories for package
      *
-     * @param  \Jackiedo\Workbench\Package 	$package
-     * @param  string 						$directory
+     * @param  \SiteDirect\Workbench\Package    $package
+     * @param  string                       $directory
      *
      * @return void
      */
@@ -421,7 +421,7 @@ class PackageCreator {
     /**
      * Create specify source class directory
      *
-     * @param  \Jackiedo\Workbench\Package $package
+     * @param  \SiteDirect\Workbench\Package $package
      * @param  string  $classDirectory
      * @param  string  $directory
      *
@@ -457,8 +457,8 @@ class PackageCreator {
     /**
      * Write main class file for package
      *
-     * @param  \Jackiedo\Workbench\Package 	$package
-     * @param  string 						$directory
+     * @param  \SiteDirect\Workbench\Package    $package
+     * @param  string                       $directory
      *
      * @return void
      */

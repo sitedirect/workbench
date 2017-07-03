@@ -1,8 +1,8 @@
 <?php namespace SiteDirect\Workbench\Console;
 
 use Illuminate\Console\Command;
-use Jackiedo\Workbench\Package;
-use Jackiedo\Workbench\PackageCreator;
+use SiteDirect\Workbench\Package;
+use SiteDirect\Workbench\PackageCreator;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -25,14 +25,14 @@ class WorkbenchMakeCommand extends Command {
 	/**
 	 * The package creator instance.
 	 *
-	 * @var \Jackiedo\Workbench\PackageCreator
+	 * @var \SiteDirect\Workbench\PackageCreator
 	 */
 	protected $creator;
 
 	/**
 	 * Create a new make workbench command instance.
 	 *
-	 * @param  \Jackiedo\Workbench\PackageCreator  $creator
+	 * @param  \SiteDirect\Workbench\PackageCreator  $creator
 	 * @return void
 	 */
 	public function __construct(PackageCreator $creator)
@@ -59,7 +59,7 @@ class WorkbenchMakeCommand extends Command {
 	/**
 	 * Run the package creator class for a given Package.
 	 *
-	 * @param  \Jackiedo\Workbench\Package  $package
+	 * @param  \SiteDirect\Workbench\Package  $package
 	 * @return string
 	 */
 	protected function runCreator($package)
@@ -87,7 +87,7 @@ class WorkbenchMakeCommand extends Command {
 	/**
 	 * Build the package details from user input.
 	 *
-	 * @return \Jackiedo\Workbench\Package
+	 * @return \SiteDirect\Workbench\Package
 	 *
 	 * @throws \UnexpectedValueException
 	 */
