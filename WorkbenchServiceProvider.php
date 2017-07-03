@@ -1,7 +1,7 @@
 <?php namespace SiteDirect\Workbench;
 
 use Illuminate\Support\ServiceProvider;
-use Jackiedo\Workbench\Console\WorkbenchMakeCommand;
+use SiteDirect\Workbench\Console\WorkbenchMakeCommand;
 
 class WorkbenchServiceProvider extends ServiceProvider {
 
